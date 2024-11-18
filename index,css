@@ -1,0 +1,49 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.pokemon-card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #dee2e6;
+}
+
+.pokemon-card:hover, .pokemon-card:focus {
+    transform: translateY(-5px);
+    border-color: #dc3545;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.pokemon-card img {
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.badge {
+    font-size: 0.8rem;
+    padding: 0.5em 1em;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.progress {
+    height: 25px;
+}
+
+.progress-bar {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .pokemon-card img {
+        max-height: 150px;
+    }
+}
