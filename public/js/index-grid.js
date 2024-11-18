@@ -70,9 +70,10 @@ async function loadPokemonCards() {
                         <h5 class="card-title text-capitalize">${details.name}</h5>
                         <div class="types-container">
                             ${types.map(type => `
-                                <button class="btn type-btn" style="background-color: ${typeColors[type]}; color: white;">
+                                <a href="./type.html" 
+                                    class="btn type-btn" style="display: inline-block; text-align: center; background-color: ${typeColors[type]}; ">
                                     ${type}
-                                </button>
+                                </a>
                             `).join('')}
                         </div>
                     </div>

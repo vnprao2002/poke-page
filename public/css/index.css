@@ -52,15 +52,49 @@ h2{
 .type-btn {
     margin: 1px;
     padding: 8px 16px;
-    border: none;
-    border-radius: 10px;
     font-size: 13px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    color:#fff;
+    border: none;
+    border-radius: 10px!important; 
 }
 
 .type-btn:hover {
     opacity: 0.8;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+#pokemon-search {
+    flex: 1; 
+}
+/* Đảm bảo bố cục nằm ngang */
+.ms-auto {
+    display: flex; /* Kích hoạt Flexbox */
+    align-items: center; /* Canh giữa theo trục dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+#suggestions {
+    top: 80%;
+    left: 0; 
+    width: 100%; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    background-color: white; 
+    border: 1px solid #ced4da; 
+    border-radius: 0 0 5px 5px; 
+}
+
+#suggestions li:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {

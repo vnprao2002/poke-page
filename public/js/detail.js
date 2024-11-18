@@ -72,14 +72,16 @@ function renderPokemonData(pokemon) {
     document.getElementById('pokemon-name').innerHTML = `${pokemon.name.toUpperCase()} <span class="text-muted">#${pokemon.id}</span>`;
     document.getElementById('pokemon-image').src = pokemon.sprites.other['official-artwork'].front_default || '';
 
-    // Hiển thị loại (type) với màu sắc
     document.getElementById('pokemon-types').innerHTML = pokemon.types
-        .map(type => {
-            const typeName = type.type.name;
-            const typeColor = typeColors[typeName] || '#000';
-            return `<span class="badge" style="background-color: ${typeColor}; color: white;">${typeName.toUpperCase()}</span>`;
-        })
-        .join('');
+    .map(type => {
+        const typeName = type.type.name;
+        const typeColor = typeColors[typeName] || '#000';
+        return `
+            <a href="type.html?type=${typeName}" class="badge" style="background-color: ${typeColor}; color: white;">
+                ${typeName.toUpperCase()}
+            </a>`;
+    })
+    .join('');
 
     // Hiển thị thông tin bổ sung
     document.querySelector('.stats-container').innerHTML = `
