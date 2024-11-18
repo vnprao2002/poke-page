@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-hollow" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+        <div class="container">
+            <a class="navbar-brand " href="index.html">Pokemon Explorer</a>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <input id="pokemon-search" type="search" class="form-control" placeholder="Tìm Pokémon..." aria-label="Search">
+                <button id="search-button" class="btn btn-light">Tìm</button>
+                <ul id="suggestions" class="list-group position-absolute mt-2" style="z-index: 1000; display: none; width: 100%;"></ul>
+            </div>                        
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="pokemon-list">
+            <h2 class="mb-3 text-center">Pokémon List </h2>
+            <div class="row" id="pokemonGrid">
+
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="text-center d-none">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/index-grid.js"></script>
+    <script src="./js/search.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
