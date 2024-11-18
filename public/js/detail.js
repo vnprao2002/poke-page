@@ -1,50 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon Explorer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container">
-            <a class="navbar-brand" href="#">Pokemon Explorer</a>
-            <div class="ms-auto">
-                <input id="pokemon-search" type="search" class="form-control" placeholder="Search Pokémon..." aria-label="Search">
-            </div>
-        </div>
-    </nav>
-
-    <div class="container mt-4">
-        <div class="card pokemon-detail-card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 text-center">
-                        <img id="pokemon-image" class="img-fluid rounded" alt="Pokemon Image">
-                        <div id="pokemon-types" class="mt-3"></div>
-                        <div class="moves-container mt-4"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <h2 id="pokemon-name"></h2>
-                        <div class="stats-container"></div>
-                        <div class="mt-4">
-                            <h4>Abilities</h4>
-                            <div id="pokemon-abilities" class="d-flex gap-2 flex-wrap"></div>                           
-                        </div>                                     
-                        <div class="mt-4">
-                            <h4>Physical Traits</h4>
-                            <p><strong>Height:</strong> <span id="pokemon-height"></span></p>
-                            <p><strong>Weight:</strong> <span id="pokemon-weight"></span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
 // Bảng màu sắc cho các loại Pokémon
 const typeColors = {
     normal: '#A8A77A',
@@ -136,7 +89,7 @@ function renderPokemonData(pokemon) {
     `;
 
     // Hiển thị Top Moves dưới dạng bảng
-    renderMovesTable(pokemon.moves.slice(0, 10));
+    renderMovesTable(pokemon.moves.slice(0, 15));
 
     // Hiển thị Abilities
     document.getElementById('pokemon-abilities').innerHTML = pokemon.abilities
@@ -153,7 +106,7 @@ function renderPokemonData(pokemon) {
 
 // Hiển thị Base Stats
 function renderBaseStats(stats) {
-    const maxStat = 200; // Giá trị tối đa của chỉ số
+    const maxStat = 250; // Giá trị tối đa của chỉ số
     const statsContainer = document.querySelector('.stats-container');
 
     statsContainer.innerHTML += '<h4>Base Stats</h4>';
@@ -203,7 +156,3 @@ if (pokemonId) {
 } else {
     alert("No Pokémon ID provided");
 }
-    </script>
-
-</body>
-</html>
