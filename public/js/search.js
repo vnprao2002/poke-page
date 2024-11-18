@@ -12,7 +12,7 @@ async function loadPokemonList() {
 }
 
 // Hiển thị gợi ý
-function showSuggestions(query) {
+async function showSuggestions(query) {
     const suggestions = document.getElementById('suggestions');
     suggestions.innerHTML = ''; // Xóa gợi ý cũ
 
@@ -24,21 +24,44 @@ function showSuggestions(query) {
     const filteredPokemon = pokemonList.filter(name => name.toLowerCase().includes(query.toLowerCase()));
     if (filteredPokemon.length > 0) {
         suggestions.style.display = 'block';
-        filteredPokemon.slice(0, 10).forEach(name => {
+        for (const name of filteredPokemon.slice(0, 10)) {
             const li = document.createElement('li');
             li.className = 'list-group-item list-group-item-action';
-            li.textContent = name;
+            
+            // Tạo phần tử hình ảnh
+            const img = document.createElement('img');
+            img.src = await getPokemonImage(name); // Lấy hình ảnh của Pokémon
+            img.alt = name;
+            img.style.width = '30px'; // Cỡ hình ảnh nhỏ
+            img.style.marginRight = '10px'; // Khoảng cách giữa hình ảnh và tên
+
+            // Tạo phần tử tên Pokémon
+            const textNode = document.createTextNode(name.charAt(0).toUpperCase() + name.slice(1));
+
+            li.appendChild(img);
+            li.appendChild(textNode);
+
             li.onclick = () => {
                 document.getElementById('pokemon-search').value = name;
                 suggestions.style.display = 'none';
             };
             suggestions.appendChild(li);
-        });
+        }
     } else {
         suggestions.style.display = 'none';
     }
 }
 
+async function getPokemonImage(name) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        const data = await response.json();
+        return data.sprites.front_default; // Lấy hình ảnh nhỏ
+    } catch (error) {
+        console.error(`Failed to load image for ${name}:`, error);
+        return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png'; // Hình mặc định (Ditto)
+    }
+}
 // Lắng nghe sự kiện nhập liệu
 document.getElementById('pokemon-search').addEventListener('input', function () {
     showSuggestions(this.value.trim());

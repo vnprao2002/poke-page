@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
         <div class="container">
-            <a class="navbar-brand " href="index.html">Pokemon Explorer</a>
+            <a class="navbar-brand " href="index.html" style=" font-family: 'Pokemon Hollow', sans-serif;">Pokemon Explorer</a>
             <div class="ms-auto d-flex align-items-center gap-2">
                 <input id="pokemon-search" type="search" class="form-control" placeholder="Tìm Pokémon..." aria-label="Search">
                 <button id="search-button" class="btn btn-light">Tìm</button>
@@ -20,7 +20,7 @@
     </nav>
 
     <div class="container mt-4">
-        <div class="card pokemon-detail-card" style="margin-top:50px;">
+        <div class="card pokemon-detail-card" style="margin-top:70px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 text-center">
@@ -30,16 +30,21 @@
                     </div>
                     <div class="col-md-6">
                         <h2 id="pokemon-name"></h2>
-                        <div class="stats-container"></div>
-                        <div class="mt-4">
-                            <h4>Khả năng</h4>
-                            <div id="pokemon-abilities" class="d-flex gap-2 flex-wrap"></div>                           
-                        </div>                                     
                         <div class="mt-4">
                             <h4>Thông số tự nhiên</h4>
                             <p><strong>Cao:</strong> <span id="pokemon-height"></span></p>
                             <p><strong>Nặng:</strong> <span id="pokemon-weight"></span></p>
                         </div>
+                        <div class="stats-container"></div>
+                        <div class="mt-4">
+                            <h4>Khả năng</h4>
+                            <div id="pokemon-abilities" class="d-flex gap-2 flex-wrap"></div>
+                        </div> 
+                        <div class="container mt-4">
+                            <h4>Biểu đồ Tiến Hóa</h4>
+                            <div id="evolution-chart" class="d-flex flex-wrap gap-3 justify-content-start"></div>
+                        </div>                                   
+                        
                     </div>
                 </div>
             </div>
@@ -48,6 +53,7 @@
 
     <script src="./js/detail.js"></script>
     <script src="./js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

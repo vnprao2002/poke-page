@@ -1,8 +1,9 @@
 body {
-    background-color: #f8f9fa;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0;    
+    font-weight: bold;
+
 }
 
 .pokemon-detail-card {
