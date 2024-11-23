@@ -40,7 +40,7 @@ function getPokemonIdFromUrl() {
 async function fetchPokemon(id) {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        if (!response.ok) throw new Error('Pokemon not found');
+        if (!response.ok) throw new Error('Pokemon không tìm thấy');
         const data = await response.json();
         renderPokemonData(data);
 

@@ -79,9 +79,9 @@ h2{
 }
 /* Đảm bảo bố cục nằm ngang */
 .ms-auto {
-    display: flex; /* Kích hoạt Flexbox */
-    align-items: center; /* Canh giữa theo trục dọc */
-    gap: 10px; /* Khoảng cách giữa các phần tử */
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
 }
 
 #suggestions {
@@ -99,6 +99,12 @@ h2{
     background-color: #f8f9fa;
     cursor: pointer;
 }
+
+#suggestions li:hover img {
+    transform: scale(2); 
+    transition: transform 0.3s ease; 
+}
+
 
 @media (max-width: 768px) {
     .navbar-brand img {
